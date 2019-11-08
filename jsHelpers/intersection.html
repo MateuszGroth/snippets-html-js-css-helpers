@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/intersection.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="view red">
+
+        </div>
+        <div class="view blue">
+
+        </div>
+        <div class="view yellow">
+
+        </div>
+        <div class="view green">
+
+        </div>
+    </div>
+</body>
+<script>
+    const sectionOne = document.querySelector('.view.red');
+    const sections = document.querySelectorAll('.view');
+
+    const options = {
+        root : null, // viewport - widok
+        threshhold : 0, // czesc jaka musi byc widoczna
+        rootMargin: '-150px 0px -150px 0px' // margin
+
+    };
+
+    const observer = new IntersectionObserver((entries, observer)=>{
+        entries.forEach(entry=>{
+            console.log(entry);
+            if(!entry.isIntersecting) return;
+            entry.target.classList.toggle('inverse');
+            observer.unobserve(entry.target); // after the as triggered on the target - unobserve it
+        });
+    }, options);
+    sections.forEach(s=>{
+        observer.observe(s);
+    })
+   // observer.observe(sectionOne);
+</script>
+</html>

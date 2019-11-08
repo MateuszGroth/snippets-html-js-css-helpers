@@ -1,0 +1,191 @@
+/* // Import Google Font - Raleway 300 & 700 */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+
+/* // ===================
+// Font and color variables
+// =================== */
+
+
+:root{
+    /* // Fonts */
+    --sans-serif: 'Raleway', sans-serif;
+    --font-light: 300;
+    --font-bold: 700;
+
+    /* // Colors */
+    --black: #353535;
+    --gray: #4f4f4f;
+    --medium-gray: #737373;
+    --light-gray: #c4c4c4;
+    --orange: #f96855;
+
+    /* // Semantic color names */
+    --accent: var(--orange);
+
+    --body-background: var(--black);
+    --menu-background: var(--gray);
+
+    --main-font-color: var(--light-gray);
+    --menu-active-color: var(--light-gray);
+    --menu-font-color: var(--medium-gray);
+    --link-color: var(--accent);
+}
+
+/* // ===================
+// General styles
+// =================== */
+
+*{ box-sizing: border-box; } 
+
+body {
+  background: var(--body-background);
+  color: var(--main-font-color);
+  font-family: var(--sans-serif);
+  font-size: 1.2rem;
+  line-height: 1.45;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 
+// ===================
+// Navigation
+// =================== */
+
+.sidebar {
+  background: var(--menu-background);
+  flex: 1 1 20%;
+  min-width: 300px;
+  padding: 3em;
+}
+
+.logo {
+  text-transform: uppercase;
+  margin-bottom: 2em;
+  
+}
+
+span.logo {
+    font-weight: var(--font-bold);
+}
+
+@media (min-width: 1500px) {
+    .logo {
+        margin-bottom: 5em;
+      }
+}
+
+.nav-item {
+  color: var(--menu-font-color);
+  text-decoration: none;
+  font-size: 1.7rem;
+  display: inline-block;
+  margin-right: 2em;
+}
+
+@media (min-width: 1500px) {
+    .nav-item {
+    display: block;
+    margin: 7vh 0;
+    }
+}
+
+.nav-item.active{
+    color: var(--menu-active-color);
+}
+
+/* // ===================
+// Main Content area
+// =================== */
+
+.main-content {
+  padding: 10%;
+  flex: 1 1 80%;
+  min-height: 100vh;
+}
+
+
+
+/* // ===================
+// Portfolio
+// =================== */
+
+.portfolio {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+.portfolio-item {
+  background: var(--accent);
+  color: var(--light-gray);
+  font-weight: var(--font-bold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* // Refractored the code a little from the video.
+  // Moved these from the .two, thought it made
+  // more sense like this. */
+  font-size: 1.5em;
+  background-size: cover;
+  background-position: top left;
+  transition: all ease-in-out 300ms;
+  position: relative;
+  z-index: 10;
+}
+.portfolio-item.small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+  
+.portfolio-item.medium {
+grid-row: span 2;
+grid-column: span 2;
+}
+
+.portfolio-item.large {
+grid-row: span 3;
+grid-column: span 3;
+}
+
+.portfolio-item.tall {
+grid-row: span 3;
+grid-column: span 2;
+}
+
+.portfolio-item.wide {
+grid-row: span 2;
+grid-column: span 3;
+}
+
+.portfolio-item:hover {
+color: white;
+text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+}
+
+.two {
+  background-image: url('https://unsplash.it/800/600');
+}
+
+.two::before {
+    content: '';
+    display: block;
+    background: var(--black);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all ease-in-out 300ms;
+    z-index: -1;
+  }
+ 
+.two:hover::before {
+opacity: 0.2;
+}
+

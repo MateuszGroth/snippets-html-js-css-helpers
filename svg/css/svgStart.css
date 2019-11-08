@@ -1,0 +1,228 @@
+body {
+    width: 100%;
+    height : 100%;
+
+    margin : 0;
+    padding: 0;
+    background: palevioletred;
+    
+}
+
+.con{
+    width: 100%;
+    height : 100vh;
+    
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-button{
+    border : 2px solid black;
+    border-radius: 20px;
+    background: white;
+    font-size : 2em;
+    padding : .1em 1em .1em 1em;
+}
+.modal{
+    display: none;
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    background: red;
+    transform: translate3d(-50%, -50%, 0);
+    width: 60vw;
+    height : 60vh;
+    
+    box-shadow: 0 0 0 100vw rgba(0,0,0,0.5);
+
+}
+.custom-button:hover{
+    background: black;
+    color : white;
+}
+/* .box:hover ~ .modal, .modal:hover{
+    display: block!important;
+} */
+
+/* .box:nth-child(1){
+    text-align: center;
+
+    background: white;
+    padding: 3em;
+    position : relative;
+
+     box-shadow : 0 0 0 10px red,
+                  0 0 0 20px pink,
+                  0 0 0 30px green; /* 20px 20px  inset optional*/
+/* } */
+/* .box:nth-child(2){
+    text-align: center;
+
+    background: white;
+    padding: 3em;
+    position : relative;
+
+    /* with offset */
+    /* box-shadow : 0 20px 0 -10px red, 
+                 0 40px 0 -20px pink,
+                 0 60px 0 -30px green; */
+                  /* 20px 20px  inset optional*/
+/* }   */
+.box{
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+
+    background: white;
+    padding: 3em;
+    position : relative;
+
+    /* with pseude */
+    box-shadow: 0 25px 35px -35px rgba(0,0,0,.25);
+}
+
+.box::after{
+    content : '';
+    position: absolute;
+    top : 90%;
+    bottom : 9px;
+    left : 45px;
+    right : 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.5);
+
+    transform : rotate(3deg);
+
+    background: pink;
+    z-index: -1;
+}
+.box::before{
+    content : '';
+    position: absolute;
+    top : 90%;
+    bottom : 9px;
+    left : 5px;
+    right : 45px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.5);
+
+    transform : rotate(-3deg);
+    z-index: -1;
+    background: lightblue;
+}
+.gap{
+    height : 100px;
+}
+.box .wrapper{
+    display : flex;
+    flex-wrap: nowrap;
+}
+
+
+.box .svgTriangle{
+    width: 1em;
+    order: -1;
+    opacity:0;
+
+    transform: translateX(-100%);
+    
+}
+.box .svgTriangle path{
+    fill : none;
+    stroke : red;
+    stroke-width : 1px;
+}
+.box .wrapper h1:hover + .svgTriangle{
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 400ms ease-out;
+}
+
+
+
+.box2{
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+
+    background: white;
+    padding: 3em;
+    position : relative;
+
+    /* with pseude */
+    box-shadow: 0 25px 35px -35px rgba(0,0,0,.25);
+}
+
+.box2::after{
+    content : '';
+    position: absolute;
+    top : 90%;
+    bottom : 9px;
+    left : 45px;
+    right : 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.5);
+
+    transform : rotate(3deg);
+
+    background: pink;
+    z-index: -1;
+}
+.box2::before{
+    content : '';
+    position: absolute;
+    top : 90%;
+    bottom : 9px;
+    left : 5px;
+    right : 45px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.5);
+
+    transform : rotate(-3deg);
+    z-index: -1;
+    background: lightblue;
+}
+
+.box2 .wrapper{
+    display : flex;
+    flex-wrap: nowrap;
+}
+
+
+.box2 .svgTriangle{
+    width: 1em;
+    order: -1;
+    
+    stroke-dasharray: 0,20; 
+    stroke-dashoffset: -14.142135620117188;
+    
+}
+.box2 .svgTriangle path{
+    fill : none;
+    stroke : red;
+    stroke-width : 1px;
+}
+.box2 .wrapper h1:hover + .svgTriangle{
+
+    stroke-dasharray: 28; 
+    stroke-dashoffset: 0;
+
+    transition : all .2s;
+}
+
+
+.box2 .line{
+    width : 100%;
+    height : 2px;
+    stroke : hsl(0, 0%, 75%);
+    margin-left: 1rem;
+}
+.box2 .line .focus{
+    stroke : black;
+    opacity : 0;
+}
+
+.box2 .line .focus{
+    stroke : black;
+    opacity : 0;
+}
