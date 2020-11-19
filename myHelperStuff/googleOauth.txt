@@ -1,0 +1,13 @@
+https://console.developers.google.com
+projects
+New Project
+https://www.youtube.com/watch?v=V4KqpIX6pdI&t=284s
+google apis / menu nawigacyjne ekran akceptacji oauth
+Biblioteka
+Search for Google+ api
+Turn on
+Google APIS
+Ekran akceptacji oauth
+Zewnetrzna
+Dane logowania
+Utworz dane logowania

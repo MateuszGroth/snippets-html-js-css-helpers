@@ -1,81 +1,84 @@
-.container-first{
-    background : pink;
-    height : 50vh;
-    width: 50vw;
-    padding : 0.5em;
-    margin: 25vh auto 0;
-    /* FLEX */
-    display : flex;
-    flex-direction: row;
-                    /* row-reverse; */
-                    /* column  (switch between row and column on media change)*/
-    flex-wrap : wrap;
-                    /* nowrap (ignores the width of inside item)*/
-    flex-flow : row wrap; /* combination of flex-direction and flex-wrap*/
-    justify-content: center; /* behaves like the opposite setting when direction is different*/
-                    /* flex-end */
-                    /* flex-start */
-                    /* center */
-                    /* space-between  ()first to the left and last to the right */
-                    /* space-around (space between each item is equal - also between the start of the container and first item) */
-    align-items: stretch; /* behaves like the opposite setting when direction is different*/
-                    /*stretch*/
-                    /* flex-end */
-                    /* flex-start */
-                    /* baseline (the base line of the furthest text is the beggining)*/
-    /* align-content: flex-end; works only with multiple lines (rows or cols) and wrap -
-     wrap  and aligns all of the content it the directed place - not content if the items in its available place*/
-
+.container-first {
+  background: pink;
+  height: 50vh;
+  width: 50vw;
+  padding: 0.5em;
+  margin: 25vh auto 0;
+  /* FLEX */
+  display: flex;
+  flex-direction: row;
+  /* row-reverse; */
+  /* column  (switch between row and column on media change)*/
+  flex-wrap: wrap;
+  /* nowrap (ignores the width of inside item)*/
+  flex-flow: row wrap; /* combination of flex-direction and flex-wrap*/
+  justify-content: center; /* behaves like the opposite setting when direction is different*/
+  /* flex-end */
+  /* flex-start */
+  /* center */
+  /* space-between  ()first to the left and last to the right */
+  /* space-around (space between each item is equal - also between the start of the container and first item) */
+  align-items: stretch; /* behaves like the opposite setting when direction is different*/
+  /*stretch*/
+  /* flex-end */
+  /* flex-start */
+  /* baseline (the base line of the furthest text is the beggining)*/
+  /* align-content: flex-end; works only with multiple lines (rows or cols) and wrap -
+     wrap  and aligns all of the content it the directed place - not content if the items is in its available place*/
 }
-.container{
-    background : pink;
-    height : 50vh;
-    width: 80vw;
-    padding : 0.5em;
-    margin: 25vh auto 0;
-    /* FLEX */
-    display : flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /* align-items: flex-start */
+.container {
+  background: pink;
+  height: 600px;
+  width: 500px;
+  padding: 0.5em;
+  margin: 25vh auto 0;
+  /* FLEX */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 
+  align-items: center;
+  /* align-items: flex-start;
+  justify-content: flex-end;
+  align-content: flex-end; */
+  /* align-items: flex-start */
 }
-
-
 
 /* flex-items*/
-.item{
-    background: lightblue;
-    margin : 0.5em;
-    /* flex-grow: ;
+.item {
+  background: lightblue;
+  margin: 0.5em;
+  flex: 0 0 300px !important;
+  height: 40px;
+  /* flex-grow: ;
     flex-shrink: ;
     flex-basis: ;*/
-    /* combination of grow shrink basis */
+  /* combination of grow shrink basis */
 
-    /*flex : ; */
+  /*flex : ; */
 }
 
-.item.one{
-    flex-grow: 1; /* 1 - take all of the available space, 0 - dont grow, 2 - grow faster than
+.item.one {
+  flex-grow: 1; /* 1 - take all of the available space, 0 - dont grow, 2 - grow faster than
      others with this setting set to 1*/
-    flex-shrink: 1; /* 1 - shrink default, 2 - shrink faster than otherones, 3 - shrink even faster than
+  flex-shrink: 1; /* 1 - shrink default, 2 - shrink faster than otherones, 3 - shrink even faster than
     others with this setting set to 1 or 2*/
-    flex-basis: 250px;
+  flex-basis: 250px;
 
-    flex : 0 1 250px; /* equivalent to the three settings above*/
-    /* flex : 2 250px - grow 2 shrink default basis 250px*/
-    align-self: flex-end;
+  flex: 0 1 250px; /* equivalent to the three settings above*/
+  /* flex : 2 250px - grow 2 shrink default basis 250px*/
+  /* align-self: flex-end; */
 }
 
-.item.two{
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: 250px;
-    order : 0 ; /*0 - default place , negative value - at the start, +1 - at the end*/
+.item.two {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 250px;
+  order: 0; /*0 - default place , negative value - at the start, +1 - at the end*/
 }
 
-.item.three{
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: 250px;
+.item.three {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 250px;
 }
