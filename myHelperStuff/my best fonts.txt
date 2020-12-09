@@ -1,0 +1,12 @@
+Serif
+	Playfair Display
+	Amiri
+
+Sans Serif:
+
+	Montserrat
+	Poppins
+	Nunito
+	Source Sans Pro
+	Open sans
+	Futura

@@ -1,3 +1,5 @@
+// running docker container (basic)
+
 docker pull ubuntu // pull ubuntu image
 
 docker run ubuntu // running base image
@@ -17,13 +19,13 @@ docker run ubuntu tail -f /dev/null // run for ever
 docker kill <id> // kill docker container by id
 
 
-// docker file
+// creating docker image with docker file and running container from it
 
 create Dockerfile
 
 FROM scratch/ubuntu
 
-MAINTEINER mateusz groth <matgro@wp.asdas> // optional
+LABEL mateusz groth <matgro@wp.asdas> // optional
 
 RUN apt-get update
 
@@ -36,7 +38,9 @@ docker build . // run docker from dockerfile (when inside Dockerfile path)
 docker build -t myimage .  // name -   myimage
 
 
+docker run ...
 
+docker images
 
 
 
@@ -64,3 +68,102 @@ COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
 RUN npm i -g http-server
 
 CMD http-server ./dist
+
+// another 
+
+# Use the official image as a parent image.
+FROM node:current-slim
+
+# Set the working directory.
+WORKDIR /usr/src/app
+
+# Copy the file from your host to your current location.
+COPY package.json .
+
+# Run the command inside your image filesystem.
+RUN npm install
+
+# Add metadata to the image to describe which port the container is listening on at runtime.
+EXPOSE 8080
+
+# Run the specified command within the container.
+CMD [ "npm", "start" ]
+
+# Copy the rest of your app's source code from your host to your image filesystem.
+COPY . .
+
+
+
+
+// creating docker image from docker container
+
+- create cont first
+
+docker create --name kontener -p 80:80 nginx:alpine
+// or simply docker create --name ubuntukontener ubuntu
+
+docker start <nazwa> // kontener
+
+// create index.html where you are running the docker and then copy it to docker
+docker cp index.html <nazwa>:/usr/share/nginx/html/index.html
+
+
+
+docker commit <nazwa> // kontener
+
+docker tag f6a677aeasda moj_nowy_image // tag , name - both custom
+
+// OR 
+
+docker commit <nazwa> moj_nowy_image // nazwa kontenera - kontener, nazwa image, taguje automatycznie
+
+docker stop nginx_base // zatrzymac ten poczatkowy kontener
+
+docker rm nginx_base // usunac poczatkowy
+
+
+/bin/bash
+
+
+
+
+docker run -i -t --name node_ub ubuntu /bin/bash
+
+docker create -ti --name dummy IMAGE_NAME bash
+docker cp dummy:/path/to/file /dest/to/file
+docker rm -f dummy
+
+docker start  `docker ps -q -l` # restart it in the background
+docker attach `docker ps -q -l` # reattach the terminal & stdin
+
+docker start <cont name>
+docker attach <conta name>
+
+docker stop <name>
+
+create docker image from cmd
+
+docker create -it --name temporary ubuntu
+docker start temporary
+docker attach temporary
+mkdir /app
+exit
+docker cp ./node temporary:/app
+docker cp ./node_modules temporary:/app
+docker cp ./index.js temporary:/app
+
+docker commit temporary my_image // temporary - previous image, my_image the desired image
+
+docker run -p 127.0.0.1:80:8080/tcp -it node_bin_image
+
+docker create --name temp -it node_test_flags
+docker cp temp:/app/nodejs/out/Release/node ./
+docker rm -f temp
+
+docker create --name temp -it node_app_empty
+docker cp ./node temp:/app
+docker start temp
+cd app
+./node index.js
+
+docker create --name temp -it node_app_empty
