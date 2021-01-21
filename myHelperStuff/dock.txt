@@ -167,3 +167,18 @@ cd app
 ./node index.js
 
 docker create --name temp -it node_app_empty
+
+
+
+mozna tez kopiowac pliki bezposrednio do kontenerow
+
+docker run -it ubuntu
+potem powstal kontener
+> exit
+docker container ps -a, sprawdz nazwe kontenera
+potem docker cp plik nazwakontenera:/
+docker start nazwakontenera
+docker attach nazwakontenera
+
+mozna potem img zrobic
+docker commit nazwakontenera nazwaimg

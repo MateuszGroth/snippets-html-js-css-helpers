@@ -1,0 +1,131 @@
+.icon-button {
+  --icon-button-size: 1.5em;
+  --icon-button-color: blue;
+  --icon-button-font-size: 0.9em;
+  --icon-button-hover-bg: rgba(0, 0, 0, 0.09);
+  --icon-button-active-bg: rgba(0, 0, 0, 0.07);
+  --main-anim-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+  width: var(--icon-button-size);
+  height: var(--icon-button-size);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: var(--icon-button-font-size);
+  font-weight: 600;
+  color: var(--icon-button-color);
+
+  border: 0px;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: background-color 250ms var(--main-anim-function),
+    color 250ms var(--main-anim-function);
+
+  z-index: 1;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    z-index: -1;
+
+    background: var(--icon-button-active-bg);
+    transition: opacity 250ms var(--main-anim-function);
+  }
+
+  &.icon-button--disabled {
+    pointer-events: none;
+  }
+
+  &.icon-button--clicked {
+    &::before {
+      content: '';
+
+      position: absolute;
+      left: calc(var(--x, 0) * 1px);
+      top: calc(var(--y, 0) * 1px);
+      transform: translate(-50%, -50%);
+      width: 150%;
+      height: 150%;
+
+      opacity: 1;
+
+      z-index: -1;
+
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+
+      animation: iconButtonClickAnimation 300ms var(--main-anim-function)
+        forwards;
+    }
+  }
+
+  &.icon-button--focus::after {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+
+    opacity: 1;
+
+    z-index: -1;
+
+    background: rgba(0, 0, 0, 0.09);
+    border-radius: 50%;
+
+    animation: iconButtonFocusAnimation 300ms 20ms var(--main-anim-function)
+      forwards;
+  }
+
+  &.icon-button--hover::after {
+    opacity: 0.5;
+  }
+  &.icon-button--active::after {
+    opacity: 0.8;
+  }
+}
+
+.icon-button svg {
+  width: 85%;
+  height: 85%;
+}
+
+@keyframes iconButtonClickAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes iconButtonFocusAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}

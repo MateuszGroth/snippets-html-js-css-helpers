@@ -1,0 +1,10 @@
+.mateusz-image {
+  min-height: 50px;
+  opacity: 0;
+
+  transition: opacity 250ms var(--main-anim-function),
+    height 250ms var(--main-anim-function);
+  &.mateusz-image--loaded {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,11 @@
+.mateusz-select--multi {
+  font-size: var(--component-fs);
+}
+
+.mateusz-select__selected-option {
+  position: relative;
+
+  &:not(:last-of-type) {
+    margin-right: 0.5em;
+  }
+}
