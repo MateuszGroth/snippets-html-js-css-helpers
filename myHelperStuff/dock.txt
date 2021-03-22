@@ -125,14 +125,13 @@ docker rm nginx_base // usunac poczatkowy
 /bin/bash
 
 
-
-
 docker run -i -t --name node_ub ubuntu /bin/bash
 
-docker create -ti --name dummy IMAGE_NAME bash
+docker create -it --name dummy IMAGE_NAME bash
 docker cp dummy:/path/to/file /dest/to/file
 docker rm -f dummy
 
+##??
 docker start  `docker ps -q -l` # restart it in the background
 docker attach `docker ps -q -l` # reattach the terminal & stdin
 
@@ -140,6 +139,8 @@ docker start <cont name>
 docker attach <conta name>
 
 docker stop <name>
+
+///
 
 create docker image from cmd
 
@@ -154,17 +155,35 @@ docker cp ./index.js temporary:/app
 
 docker commit temporary my_image // temporary - previous image, my_image the desired image
 
+
+#######OR
+
+docker run --name temp -it ubuntu
+apt update
+exit
+docker commit temp my_image
+docker rm -f temp
+
+///
+
+EXPOSE PORT
+
 docker run -p 127.0.0.1:80:8080/tcp -it node_bin_image
+
+///
 
 docker create --name temp -it node_test_flags
 docker cp temp:/app/nodejs/out/Release/node ./
 docker rm -f temp
 
+///
 docker create --name temp -it node_app_empty
 docker cp ./node temp:/app
 docker start temp
 cd app
 ./node index.js
+
+///
 
 docker create --name temp -it node_app_empty
 
@@ -176,6 +195,8 @@ docker run -it ubuntu
 potem powstal kontener
 > exit
 docker container ps -a, sprawdz nazwe kontenera
+albo jak: docker run --name nazwa-kontenera -it ubuntu
+to juz jest nazwa (nazwa-kontenera)
 potem docker cp plik nazwakontenera:/
 docker start nazwakontenera
 docker attach nazwakontenera
