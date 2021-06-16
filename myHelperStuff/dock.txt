@@ -43,9 +43,6 @@ docker run ...
 docker images
 
 
-
-
-
 // another
 FROM node:10 AS BUILD_IMAGE
 
@@ -99,7 +96,12 @@ COPY . .
 
 - create cont first
 
+// first port after -p is the port on your localhost
+// second port is what you are exposing from docker
+
 docker create --name kontener -p 80:80 nginx:alpine
+
+
 // or simply docker create --name ubuntukontener ubuntu
 
 docker start <nazwa> // kontener

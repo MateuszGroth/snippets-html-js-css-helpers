@@ -1,0 +1,74 @@
+uuid
+
+supabase
+@supabase/supabase-js
+@supabase/ui
+
+simplemde - for creating plain html from inserted text (like blog post)
+react-simplemde-editor
+easymde
+
+react-markdown - to transform text into html, like **text** to <strong>text</strong>
+react-markdown
+
+@tailwindcss/typography - for default styling of plain html (from blog post for example)
+
+tailwindcss@latest
+@tailwindcss/typography
+
+postcss@latest
+autoprefixer@latest
+
+classnames
+
+slick  (carousel)
+
+nextjs
+
+blueprint
+Blueprint is a React UI toolkit used to create and manage data-intensive user Interfaces for desktop applications
+
+chakra-ui
+Chakra UI is a React library which offers you simple, modular and accessible components which you can use as building blocks you need to build your React applications. All components are also dark mode compatible.
+
+search-ui
+Every content-based websites need some sort of search functionality for retrieving certain parts of content. Search UI is a React-based search framework for implementing world-class search functionality without having to code from scratch or reinvent the wheel.
+
+ant-design
+Ant Design is an enterprise-grade React UI framework containing a set of tools for creating beautiful and Intuitive User Interfaces for your web application.
+
+material-ui
+
+reactstrap
+
+smooth-UI
+As it's name implies, this library is focused on user experience and accessibility. Smooth UI makes it is easy to design beautiful websites and applications with clean and smooth features to make for a satisfactory experience for the end user.
+
+react-datepicker
+
+react-select
+
+react-sortable-hoc
+Being able to sort a collection of items based on a criteria is a very important functionality for many websites to have.
+
+For example, sorting a list of users by how recently they were added, how active they are, etc.
+
+This library helps you do that, and more. It contains a set of React components to make any list into an animated, sortable list.
+
+rc-calendar
+
+react-toggle
+
+wysiwyg-editor
+All modern content management platforms must have a modern text editor interface for users to type into. This is where wysiwyg comes in.
+
+This library is a multifeature text editor build on top of ReactJS and DraftJS.
+
+victory
+Victory is a collection of composable React components for building interactive data visualizations in your web application
+
+halogen
+Halogen houses a huge collection of loading spinners made with React.js.
+
+dragula
+Drag and drop is a very useful feature for many websites to have, especially content management platforms and website builders.
